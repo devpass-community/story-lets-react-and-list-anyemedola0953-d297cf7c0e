@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from './components/Container';
-import products from './src/products.json';
+import products from './products.json';
 
 const Item = ({ product }) => {
   return (
