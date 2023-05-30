@@ -1,14 +1,15 @@
 import Container from './components/Container';
+import item from './src/products.json';
 
 const Item = ({ item }) => {
   return (
     <li className='item' data-testid='product-item'>
       { /* TODO */ }
-      <img src="thumbnail here"></img>
-      <h4> title here </h4>
-      <p> description here </p>
-      <span> brand here </span>
-      <span> price here </span>
+      <img src="thumbnail here">{item.thumbnail}</img>
+      <h4> {item.title} </h4>
+      <p> {item.description} </p>
+      <span> {item.brand} </span>
+      <span> {item.price} </span>
     </li>
   )
 }
