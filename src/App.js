@@ -1,25 +1,30 @@
+import React from 'react';
 import Container from './components/Container';
-import item from './src/products.json';
+import products from './src/products.json';
 
-const Item = ({ item }) => {
+const Item = ({ product }) => {
   return (
     <li className='item' data-testid='product-item'>
-      { /* TODO */ }
-      <img src="thumbnail here">{item.thumbnail}</img>
-      <h4> {item.title} </h4>
-      <p> {item.description} </p>
-      <span> {item.brand} </span>
-      <span> {item.price} </span>
+      <img src={product.thumbnail} alt="Thumbnail" />
+      <h4>{product.title}</h4>
+      <p>{product.description}</p>
+      <span>{product.brand}</span>
+      <span>{product.price}</span>
     </li>
-  )
+  );
 }
 
 function App() {
+  const filteredProducts = products.filter(product => product.category === 'smartphones');
+
+  const productItems = filteredProducts.map(product => (
+    <Item product={product} key={product.id} />
+  ));
+
   return (
     <Container>
       <ul className='list' data-testid='product-list'>
-        { /* TODO */ }
-        <Item />
+        {productItems}
       </ul>
     </Container>
   );
